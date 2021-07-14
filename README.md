@@ -5,6 +5,11 @@
 ### 1. 시작
 [spring initializer](https://start.spring.io/)
 
+### 2. API
+CRUD API(CRUD란, Create, Read, Update, Delete의 앞 글자를 딴 약자)를 만든다.
+웹 어플리케이션 개발을 위해서는 CRUD와 같은 기본 기능이 필요하다.
+이 프로젝트를 통해 CRUD API를 만들어 웹 어플리케이션을 개발할 때 필요한 뼈대 기능을 구현한다.
+
 
 
 ## reference
