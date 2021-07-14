@@ -1,5 +1,6 @@
 package com.convenant.springbootmysql.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,6 +18,12 @@ public class Lend {
     private Long id;
     private Instant startOn; // 대출 시작
     private Instant dueOn; // 대출 종료
+
     @Enumerated(EnumType.ORDINAL)
     private LendStatus status; // 대출 상태
+
+    @ManyToOne
+    @JoinColumn(name = "book_id")
+    @JsonManagedReference
+    private Book book;
 }

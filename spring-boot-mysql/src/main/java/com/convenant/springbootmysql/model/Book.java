@@ -2,9 +2,12 @@ package com.convenant.springbootmysql.model;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -24,4 +27,11 @@ public class Book {
     @JoinColumn(name = "author_id")
     @JsonManagedReference
     private  Author author;
+    
+    // 동일한 제목의 책이 도서관 하나에 다수 존재할 경우
+    // 책을 여러명이 대출할 수 있음
+    @JsonBackReference
+    @OneToMany(mappedBy = "book",
+               fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Lend> lends;
 }
