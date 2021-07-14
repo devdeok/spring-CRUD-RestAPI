@@ -1,8 +1,10 @@
 package com.convenant.springbootmysql.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -18,4 +20,10 @@ public class Member {
 
     @Enumerated(EnumType.STRING)
     private MemberStatus status;
+
+    @JsonBackReference
+    @OneToMany(mappedBy = "mamber",
+               fetch = FetchType.LAZY,
+               cascade = CascadeType.ALL)
+    private List<Lend> lends;
 }

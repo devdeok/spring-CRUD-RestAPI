@@ -26,4 +26,9 @@ public class Lend {
     @JoinColumn(name = "book_id")
     @JsonManagedReference
     private Book book;
+
+    @ManyToOne
+    @JoinColumn(name = "member_id")
+    @JsonManagedReference
+    private Member member;
 }
