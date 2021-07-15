@@ -96,18 +96,18 @@ public class LibraryService {
     }
     
     // BookLendRequest로 도서를 대출
-    public List<String> lendBook(List<BookLendRequest> list){
+    public List<String> lendABook(BookLendRequest request){
         List<String> bookApprovedToBurrow = new ArrayList<>();
 
-        list.forEach(bookLendRequest -> {
+        request.getBookIds().forEach(bookId -> {
             Optional<Book> bookForId =
-                    bookRepository.findById(bookLendRequest.getBookId());
+                    bookRepository.findById(bookId);
             if(!bookForId.isPresent()){
                 throw new EntityNotFoundException("Can't find any book under given ID");
             }
 
             Optional<Member> memberForId =
-                    memberRepository.findById(bookLendRequest.getMemberId());
+                    memberRepository.findById(request.getMemberId());
             if(!memberForId.isPresent()){
                 throw new EntityNotFoundException("Member not present in the database");
             }
