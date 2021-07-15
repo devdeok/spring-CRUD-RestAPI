@@ -1,6 +1,10 @@
 package com.convenant.springbootmysql.service;
 
 import com.convenant.springbootmysql.model.*;
+import com.convenant.springbootmysql.model.request.AuthorCreationRequest;
+import com.convenant.springbootmysql.model.request.BookCreationRequest;
+import com.convenant.springbootmysql.model.request.BookLendRequest;
+import com.convenant.springbootmysql.model.request.MemberCreationRequest;
 import com.convenant.springbootmysql.repository.AuthorRepository;
 import com.convenant.springbootmysql.repository.BookRepository;
 import com.convenant.springbootmysql.repository.LendRepository;
@@ -21,7 +25,7 @@ import java.util.Optional;
 public class LibraryService {
 
     private  final AuthorRepository authorRepository;
-    private  final MemberRepository memberRepository
+    private  final MemberRepository memberRepository;
     private  final LendRepository lendRepository;
     private  final BookRepository bookRepository;
 
